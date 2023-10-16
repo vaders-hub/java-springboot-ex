@@ -16,4 +16,7 @@ public class CountryService {
         return countryMapper.getCountryList();
     }
 
+    public CountryDTO getCountry(String country) {
+        return countryMapper.getCountry(country);
+    }
 }

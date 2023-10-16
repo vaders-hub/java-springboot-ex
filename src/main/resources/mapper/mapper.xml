@@ -4,4 +4,7 @@
     <select id="getCountryList" resultType="vader.lab.demo.domain.CountryDTO">
         select * from countries
     </select>
+    <select id="getCountry" resultType="vader.lab.demo.domain.CountryDTO">
+        select * from countries where name = #{country}
+    </select>
 </mapper>
