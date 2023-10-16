@@ -25,6 +25,7 @@ import java.util.NoSuchElementException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
 
 @Slf4j
 @Validated
@@ -48,7 +49,7 @@ public class CountryController {
     }
 
     @GetMapping("/country")
-    public ResponseEntity<ResultModel> getCountry(@RequestParam(required = true) String country) {
+    public ResponseEntity<ResultModel> getCountry(@Valid @RequestParam(required = true) String country) {
         ResultModel resultModel = new ResultModel();
 
         CountryDTO searchedCountry = countryService.getCountry(country);

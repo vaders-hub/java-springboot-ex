@@ -20,6 +20,8 @@ public class ResponeExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public String handleAllExceptions(Exception ex) {
-        return ex.getMessage();
+        log.error("sfsfsdfsdfsdfsdf");
+        System.out.println("sfdsdfsdfd");
+        return "????"; // ex.getMessage();
     }
 }
