@@ -59,19 +59,7 @@ public class CountryController {
 
         return ResponseEntity.ok().body(resultModel);
     }
-
-
-    @ExceptionHandler(MissingServletRequestParameterException.class)
-    public ResponseEntity<ResultModel> handleMissingParams(MissingServletRequestParameterException ex) {
-        ResultModel resultModel = new ResultModel();
-        String name = ex.getMessage();
-        System.out.println(name + " parameter is missing");
-        Map<String, Object> rawMap = new HashMap<>();
-        rawMap.put("error", name);
-        resultModel.setData(rawMap);
-        return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(resultModel);
-    }
-
+    
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> handleNoSuchElementFoundException(NoSuchElementException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());

@@ -2,6 +2,7 @@ package vader.lab.demo.exception;
 
 
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import vader.lab.demo.domain.ApiError;
 import vader.lab.demo.domain.ResultModel;
 
@@ -61,7 +62,7 @@ public class ControllerAdvisor {
     ) {
 
         HttpStatus status = HttpStatus.NOT_FOUND; // 404
-        log.info("????? 1" + status);
+
         return new ResponseEntity<>(
                 new ApiError(
                         status,
@@ -70,7 +71,23 @@ public class ControllerAdvisor {
                 status
         );
     }
-    
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ResponseEntity<ResultModel> handleMissingParams(
+            MissingServletRequestParameterException e
+    ) {
+        ResultModel resultModel = new ResultModel();
+
+        HttpStatus status = HttpStatus.PAYMENT_REQUIRED;
+        String defaultMessage = e.getMessage();
+
+        resultModel.setResultCode("N000");
+        resultModel.setResultMessage(defaultMessage);
+        resultModel.setData(null);
+
+        return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(resultModel);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResultModel> handleExceptions(
             Exception e
