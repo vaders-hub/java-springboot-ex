@@ -4,16 +4,19 @@ import javax.annotation.Resource;
 
 import vader.lab.demo.property.FileStorageProperties;
 
+import vader.lab.demo.service.FilesStorageService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import vader.lab.demo.service.FilesStorageService;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableConfigurationProperties({
         FileStorageProperties.class
 })
+@EnableCaching
 public class DemoApplication implements CommandLineRunner {
     @Resource
     FilesStorageService storageService;

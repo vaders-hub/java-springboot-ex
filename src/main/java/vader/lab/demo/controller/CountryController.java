@@ -19,6 +19,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import java.util.NoSuchElementException;
@@ -48,6 +51,7 @@ public class CountryController {
         return ResponseEntity.ok().body(resultModel);
     }
 
+    @Cacheable(value = "country_id", key = "#country", unless = "#result.country < 12000")
     @GetMapping("/country")
     public ResponseEntity<ResultModel> getCountry(@Valid @RequestParam(required = true) String country) {
         ResultModel resultModel = new ResultModel();
@@ -57,9 +61,11 @@ public class CountryController {
         resultModel.setResultCode("0000");
         resultModel.setData(searchedCountry);
 
+        log.info("Getting country" + country);
+
         return ResponseEntity.ok().body(resultModel);
     }
-    
+
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> handleNoSuchElementFoundException(NoSuchElementException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
