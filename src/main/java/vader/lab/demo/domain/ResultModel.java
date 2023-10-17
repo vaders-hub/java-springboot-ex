@@ -10,6 +10,7 @@ public class ResultModel {
     private String resultMessage;
     private Object data;
 
+
     public ResultModel() {
         this.resultCode = NoticeCode.SUCCESS.getCode();
         this.resultMessage = NoticeCode.SUCCESS.getMessage();

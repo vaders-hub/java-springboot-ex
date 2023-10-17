@@ -53,10 +53,9 @@ public class CountryController {
         ResultModel resultModel = new ResultModel();
 
         CountryDTO searchedCountry = countryService.getCountry(country);
-        Map<String, Object> rawMap = new HashMap<>();
-        rawMap.put("list", searchedCountry);
 
-        resultModel.setData(rawMap);
+        resultModel.setResultCode("0000");
+        resultModel.setData(searchedCountry);
 
         return ResponseEntity.ok().body(resultModel);
     }

@@ -17,7 +17,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-        log.info("signUpRequest: " + signUpRequest);
+
         return new ResponseEntity<>("User registered Successfully!", HttpStatus.OK);
     }
 }
