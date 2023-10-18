@@ -13,6 +13,7 @@ public class AppConfig {
     //Creating Connection with Redis
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
+
         return new LettuceConnectionFactory();
     }
 
@@ -21,6 +22,7 @@ public class AppConfig {
     public RedisTemplate<String, Employee> redisTemplate() {
         RedisTemplate<String, Employee> empTemplate = new RedisTemplate<>();
         empTemplate.setConnectionFactory(redisConnectionFactory());
+
         return empTemplate;
     }
 }
