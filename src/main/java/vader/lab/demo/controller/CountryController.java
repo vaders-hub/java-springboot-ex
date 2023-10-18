@@ -50,8 +50,7 @@ public class CountryController {
 
         return ResponseEntity.ok().body(resultModel);
     }
-
-    @Cacheable(value = "country_id", key = "#country", unless = "#result.country < 12000")
+    
     @GetMapping("/country")
     public ResponseEntity<ResultModel> getCountry(@Valid @RequestParam(required = true) String country) {
         ResultModel resultModel = new ResultModel();

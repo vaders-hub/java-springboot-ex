@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import vader.lab.demo.domain.Employee;
 
 @Configuration
-public class AppConfig {
+public class RedisConfig {
 
     //Creating Connection with Redis
     @Bean
