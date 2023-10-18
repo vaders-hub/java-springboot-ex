@@ -5274,3 +5274,138 @@ java.io.EOFException: null
 2023-10-18 14:47:33,037 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.16, Spring v5.3.30
 2023-10-18 14:47:33,039 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
 2023-10-18 14:47:38,651 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DemoApplication in 6.163 seconds (JVM running for 7.081)
+2023-10-18 14:48:14,357 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DemoApplication using Java 1.8.0_332 on DESKTOP-17ADDHE with PID 20608 (D:\lab\java\demo\build\classes\java\main started by vader in D:\lab\java\demo)
+2023-10-18 14:48:14,361 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.16, Spring v5.3.30
+2023-10-18 14:48:14,362 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-18 14:48:19,823 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DemoApplication in 5.982 seconds (JVM running for 6.907)
+2023-10-18 14:48:25,484 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-2] Pre Handle method is Calling
+2023-10-18 14:48:25,966 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] ==>  Preparing: select * from countries where name = ?
+2023-10-18 14:48:25,988 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] ==> Parameters: Aruba(String)
+2023-10-18 14:48:26,015 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==    Columns: country_id, name, area, national_day, country_code2, country_code3, region_id
+2023-10-18 14:48:26,016 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==        Row: 1, Aruba, 193.00, null, AW, ABW, 1
+2023-10-18 14:48:26,030 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==      Total: 1
+2023-10-18 14:48:26,046 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] ==>  Preparing: select * from countries where name = ?
+2023-10-18 14:48:26,047 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] ==> Parameters: Aruba(String)
+2023-10-18 14:48:26,051 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==    Columns: country_id, name, area, national_day, country_code2, country_code3, region_id
+2023-10-18 14:48:26,052 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==        Row: 1, Aruba, 193.00, null, AW, ABW, 1
+2023-10-18 14:48:26,052 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-2] <==      Total: 1
+2023-10-18 14:48:26,053 INFO vader.lab.demo.controller.CountryController [http-nio-8081-exec-2] Getting countryAruba
+2023-10-18 14:48:26,185 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-2] Post Handle method is Calling
+2023-10-18 14:48:26,186 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-2] Request and Response is completed
+2023-10-18 15:11:28,741 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DemoApplication using Java 1.8.0_332 on DESKTOP-17ADDHE with PID 15980 (D:\lab\java\demo\build\classes\java\main started by vader in D:\lab\java\demo)
+2023-10-18 15:11:28,745 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.16, Spring v5.3.30
+2023-10-18 15:11:28,746 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-18 15:11:34,150 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DemoApplication in 5.926 seconds (JVM running for 6.837)
+2023-10-18 15:11:45,450 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 15:11:45,451 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 15:11:45,483 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Pre Handle method is Calling
+2023-10-18 15:11:45,836 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] ==>  Preparing: select * from countries where name = ?
+2023-10-18 15:11:45,864 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] ==> Parameters: Aruba(String)
+2023-10-18 15:11:45,897 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==    Columns: country_id, name, area, national_day, country_code2, country_code3, region_id
+2023-10-18 15:11:45,898 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==        Row: 1, Aruba, 193.00, null, AW, ABW, 1
+2023-10-18 15:11:45,916 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==      Total: 1
+2023-10-18 15:11:45,934 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] ==>  Preparing: select * from countries where name = ?
+2023-10-18 15:11:45,935 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] ==> Parameters: Aruba(String)
+2023-10-18 15:11:45,938 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==    Columns: country_id, name, area, national_day, country_code2, country_code3, region_id
+2023-10-18 15:11:45,941 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==        Row: 1, Aruba, 193.00, null, AW, ABW, 1
+2023-10-18 15:11:45,943 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger [http-nio-8081-exec-1] <==      Total: 1
+2023-10-18 15:11:45,944 INFO vader.lab.demo.controller.CountryController [http-nio-8081-exec-1] Getting countryAruba
+2023-10-18 15:11:46,080 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Post Handle method is Calling
+2023-10-18 15:11:46,080 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Request and Response is completed
+2023-10-18 16:26:04,332 WARN com.zaxxer.hikari.pool.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45m47s952ms357µs600ns).
+2023-10-18 17:24:41,045 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DemoApplication using Java 1.8.0_332 on DESKTOP-17ADDHE with PID 26084 (D:\lab\java\demo\build\classes\java\main started by vader in D:\lab\java\demo)
+2023-10-18 17:24:41,049 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.16, Spring v5.3.30
+2023-10-18 17:24:41,050 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-18 17:24:46,251 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DemoApplication in 5.729 seconds (JVM running for 6.649)
+2023-10-18 17:25:11,642 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:25:11,643 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:25:11,661 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Pre Handle method is Calling
+2023-10-18 17:25:11,674 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Post Handle method is Calling
+2023-10-18 17:25:11,683 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Request and Response is completed
+2023-10-18 17:25:11,689 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8081-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Circular view path [index]: would dispatch back to the current handler URL [/api/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
+javax.servlet.ServletException: Circular view path [index]: would dispatch back to the current handler URL [/api/index] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:210)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:148)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at vader.lab.demo.filter.SimpleFilter.doFilter(SimpleFilter.java:29)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1790)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+2023-10-18 17:25:11,697 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Pre Handle method is Calling
+2023-10-18 17:25:11,719 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Post Handle method is Calling
+2023-10-18 17:25:11,728 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Request and Response is completed
+2023-10-18 17:48:03,036 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting DemoApplication using Java 1.8.0_332 on DESKTOP-17ADDHE with PID 26416 (D:\lab\java\demo\build\classes\java\main started by vader in D:\lab\java\demo)
+2023-10-18 17:48:03,040 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.16, Spring v5.3.30
+2023-10-18 17:48:03,040 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-10-18 17:48:08,601 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started DemoApplication in 6.097 seconds (JVM running for 7.013)
+2023-10-18 17:48:15,968 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:48:15,969 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-1] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:48:15,985 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Pre Handle method is Calling
+2023-10-18 17:48:16,000 INFO vader.lab.demo.controller.ProductsController [http-nio-8081-exec-1] Getting country[Product(name=television, lastUpdated=2021-09-22, price=15,678.43, summary=null), Product(name=washingmachine, lastUpdated=2021-09-20, price=152,637.76, summary=null)]
+2023-10-18 17:48:16,077 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Post Handle method is Calling
+2023-10-18 17:48:16,077 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-1] Request and Response is completed
+2023-10-18 17:50:49,444 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-4] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:50:49,445 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-4] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:50:49,446 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-4] Pre Handle method is Calling
+2023-10-18 17:50:49,458 INFO vader.lab.demo.controller.ProductsController [http-nio-8081-exec-4] Getting country[Product(name=television, lastUpdated=2021-09-22, price=15 678,43, summary=null), Product(name=washingmachine, lastUpdated=2021-09-20, price=152 637,76, summary=null)]
+2023-10-18 17:50:49,465 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-4] Post Handle method is Calling
+2023-10-18 17:50:49,465 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-4] Request and Response is completed
+2023-10-18 17:51:06,915 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-5] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:51:06,915 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-5] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:51:06,916 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-5] Pre Handle method is Calling
+2023-10-18 17:51:06,918 INFO vader.lab.demo.controller.ProductsController [http-nio-8081-exec-5] Getting country[Product(name=television, lastUpdated=2021-09-22, price=15.678,43, summary=null), Product(name=washingmachine, lastUpdated=2021-09-20, price=152.637,76, summary=null)]
+2023-10-18 17:51:06,920 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-5] Post Handle method is Calling
+2023-10-18 17:51:06,921 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-5] Request and Response is completed
+2023-10-18 17:52:45,324 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-8] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:52:45,325 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-8] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:52:45,325 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-8] Pre Handle method is Calling
+2023-10-18 17:52:45,326 INFO vader.lab.demo.controller.ProductsController [http-nio-8081-exec-8] Getting country[Product(name=television, lastUpdated=2021-09-22, price=15.678,43, summary=null), Product(name=washingmachine, lastUpdated=2021-09-20, price=152.637,76, summary=null)]
+2023-10-18 17:52:45,328 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-8] Post Handle method is Calling
+2023-10-18 17:52:45,329 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-8] Request and Response is completed
+2023-10-18 17:52:46,456 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-9] Remote Host:0:0:0:0:0:0:0:1
+2023-10-18 17:52:46,456 INFO vader.lab.demo.filter.SimpleFilter [http-nio-8081-exec-9] Remote Address:0:0:0:0:0:0:0:1
+2023-10-18 17:52:46,457 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-9] Pre Handle method is Calling
+2023-10-18 17:52:46,458 INFO vader.lab.demo.controller.ProductsController [http-nio-8081-exec-9] Getting country[Product(name=television, lastUpdated=2021-09-22, price=15.678,43, summary=null), Product(name=washingmachine, lastUpdated=2021-09-20, price=152.637,76, summary=null)]
+2023-10-18 17:52:46,464 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-9] Post Handle method is Calling
+2023-10-18 17:52:46,465 INFO vader.lab.demo.interceptor.CountryServiceInterceptor [http-nio-8081-exec-9] Request and Response is completed

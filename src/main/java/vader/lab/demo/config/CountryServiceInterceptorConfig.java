@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import vader.lab.demo.interceptor.CountryServiceInterceptor;
 
 @Component
-public class CountryServiceInterceptorAppConfig extends WebMvcConfigurerAdapter {
+public class CountryServiceInterceptorConfig extends WebMvcConfigurerAdapter {
     @Autowired
     CountryServiceInterceptor countryServiceInterceptor;
 
