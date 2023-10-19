@@ -1,14 +1,18 @@
 package vader.lab.demo.components;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 import vader.lab.demo.service.EmployeeService;
 import vader.lab.demo.domain.Employee;
 
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Slf4j
 @Component
 public class RedisOpertionsRunner implements CommandLineRunner {
 
@@ -24,7 +28,7 @@ public class RedisOpertionsRunner implements CommandLineRunner {
         empDao.saveEmployee(new Employee(501, "Emp1", 2150.0));
 
         for (Employee x : empList) {
-            System.out.println("loop :: " + x.getEmpName());
+            //log.info("loop :: " + x.getEmpName());
         }
 
         // Java 9
@@ -52,9 +56,9 @@ public class RedisOpertionsRunner implements CommandLineRunner {
         empDao.deleteEmployee(500);
 
         //retrieving all employees
-        empDao.getAllEmployees().forEach((k, v) -> System.out.println(k + " : " + v));
+        empDao.getAllEmployees().forEach((k, v) -> log.info(k + " : " + v));
 
         //retrieving employee with empID 501
-        System.out.println("Emp details for 501 : " + empDao.getOneEmployee(501));
+        //log.info("Emp details for 501 : " + empDao.getOneEmployee(501));
     }
 }
