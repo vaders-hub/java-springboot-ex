@@ -18,7 +18,7 @@ public class CountryServiceInterceptor implements HandlerInterceptor {
             (HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
 
-        log.info("Pre Handle method is Calling");
+//        log.info("Pre Handle method is Calling");
         return true;
     }
 
@@ -26,7 +26,7 @@ public class CountryServiceInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) throws Exception {
 
-        log.info("Post Handle method is Calling");
+//        log.info("Post Handle method is Calling");
     }
 
     @Override
@@ -34,6 +34,6 @@ public class CountryServiceInterceptor implements HandlerInterceptor {
             (HttpServletRequest request, HttpServletResponse response, Object
                     handler, Exception exception) throws Exception {
 
-        log.info("Request and Response is completed");
+//        log.info("Request and Response is completed");
     }
 }

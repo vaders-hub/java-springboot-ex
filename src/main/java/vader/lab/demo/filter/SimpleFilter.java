@@ -23,8 +23,8 @@ public class SimpleFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterchain)
             throws IOException, ServletException {
 
-        log.info("Remote Host:" + request.getRemoteHost());
-        log.info("Remote Address:" + request.getRemoteAddr());
+//        log.info("Remote Host:" + request.getRemoteHost());
+//        log.info("Remote Address:" + request.getRemoteAddr());
 
         filterchain.doFilter(request, response);
     }

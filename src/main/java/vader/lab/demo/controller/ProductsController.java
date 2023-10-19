@@ -1,6 +1,9 @@
 package vader.lab.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
 import vader.lab.demo.domain.ResultModel;
 import vader.lab.demo.domain.Product;
@@ -18,12 +21,19 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import vader.lab.demo.domain.Employee;
+import org.springframework.core.env.Environment;
 
 
 @Slf4j
 @Controller
 public class ProductsController {
+
+    @Autowired
+    private Environment env;
+
+    @Autowired
+    @Qualifier("messageSource")
+    private MessageSource messageSource;
 
     @GetMapping("/locale-test")
     public ResponseEntity<ResultModel> locale() {
@@ -34,7 +44,6 @@ public class ProductsController {
         resultModel.setResultCode("0000");
         resultModel.setData(products);
 
-        log.info("Getting country" + products);
 
         return ResponseEntity.ok().body(resultModel);
     }
@@ -49,18 +58,17 @@ public class ProductsController {
         List<Product> products = new ArrayList<Product>();
 
         Product product = new Product();
-        product.setName("television");
+        product.setName(messageSource.getMessage("television", null, locale));
         product.setPrice(localizePrice(locale, 15678.43));
         product.setLastUpdated(localizeDate(locale, LocalDate.of(2021, Month.SEPTEMBER, 22)));
         products.add(product);
 
         product = new Product();
-        product.setName("washingmachine");
-
-
+        product.setName(messageSource.getMessage("washingmachine", null, locale));
         product.setPrice(localizePrice(locale, 152637.76));
         product.setLastUpdated(localizeDate(locale, LocalDate.of(2021, Month.SEPTEMBER, 20)));
         products.add(product);
+
         return products;
     }
 
