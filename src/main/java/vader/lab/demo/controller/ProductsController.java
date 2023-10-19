@@ -1,12 +1,15 @@
 package vader.lab.demo.controller;
 
+import vader.lab.demo.domain.ResultModel;
+import vader.lab.demo.domain.Product;
+import vader.lab.demo.service.ProductService;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
-import vader.lab.demo.domain.ResultModel;
-import vader.lab.demo.domain.Product;
+
 
 import java.text.NumberFormat;
 import java.time.LocalDate;
@@ -29,17 +32,13 @@ import org.springframework.core.env.Environment;
 public class ProductsController {
 
     @Autowired
-    private Environment env;
-
-    @Autowired
-    @Qualifier("messageSource")
-    private MessageSource messageSource;
+    private ProductService productService;
 
     @GetMapping("/locale-test")
     public ResponseEntity<ResultModel> locale() {
         ResultModel resultModel = new ResultModel();
 
-        List<Product> products = fetchProducts();
+        List<Product> products = productService.fetchProducts();
 
         resultModel.setResultCode("0000");
         resultModel.setData(products);
@@ -48,39 +47,5 @@ public class ProductsController {
         return ResponseEntity.ok().body(resultModel);
     }
 
-    /**
-     * @param locale
-     * @return
-     */
-    private List<Product> fetchProducts() {
-        Locale locale = LocaleContextHolder.getLocale();
 
-        List<Product> products = new ArrayList<Product>();
-
-        Product product = new Product();
-        product.setName(messageSource.getMessage("television", null, locale));
-        product.setPrice(localizePrice(locale, 15678.43));
-        product.setLastUpdated(localizeDate(locale, LocalDate.of(2021, Month.SEPTEMBER, 22)));
-        products.add(product);
-
-        product = new Product();
-        product.setName(messageSource.getMessage("washingmachine", null, locale));
-        product.setPrice(localizePrice(locale, 152637.76));
-        product.setLastUpdated(localizeDate(locale, LocalDate.of(2021, Month.SEPTEMBER, 20)));
-        products.add(product);
-
-        return products;
-    }
-
-    private String localizeDate(final Locale locale, final LocalDate date) {
-        String localizedDate = DateTimeFormatter.ISO_LOCAL_DATE.format(date);
-        return localizedDate;
-    }
-
-
-    private String localizePrice(final Locale locale, final Double price) {
-        NumberFormat numberFormat = NumberFormat.getInstance(locale);
-        String localizedPrice = numberFormat.format(price);
-        return localizedPrice;
-    }
 }
