@@ -15,7 +15,7 @@ import vader.lab.demo.payload.SignupRequest;
 @RequestMapping("/auth")
 public class UserController {
 
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 
         return new ResponseEntity<>("User registered Successfully!", HttpStatus.OK);

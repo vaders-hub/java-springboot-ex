@@ -1,13 +1,14 @@
 package vader.lab.demo.payload;
 
+import vader.lab.demo.validation.PasswordMatching;
+import vader.lab.demo.validation.StrongPassword;
+
 import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import vader.lab.demo.validation.PasswordMatching;
-import vader.lab.demo.validation.StrongPassword;
 
 @Data
 @PasswordMatching(

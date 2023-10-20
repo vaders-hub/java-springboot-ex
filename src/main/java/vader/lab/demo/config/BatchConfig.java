@@ -1,6 +1,6 @@
 package vader.lab.demo.config;
 
-import vader.lab.demo.domain.User;
+import vader.lab.demo.domain.Author;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -35,23 +35,23 @@ public class BatchConfig {
     }
 
     @Bean
-    FlatFileItemReader<User> itemReader() {
+    FlatFileItemReader<Author> itemReader() {
 
-        return new FlatFileItemReaderBuilder<User>()
+        return new FlatFileItemReaderBuilder<Author>()
                 .name("userItemReader")
                 .resource(new ClassPathResource("test-data.csv"))
                 .delimited()
                 .delimiter(";")
                 .names("name", "surname", "address")
-                .fieldSetMapper(new BeanWrapperFieldSetMapper<User>() {{
-                    setTargetType(User.class);
+                .fieldSetMapper(new BeanWrapperFieldSetMapper<Author>() {{
+                    setTargetType(Author.class);
                 }})
                 .build();
     }
 
     @Bean
-    JdbcBatchItemWriter<User> itemWriter() {
-        return new JdbcBatchItemWriterBuilder<User>()
+    JdbcBatchItemWriter<Author> itemWriter() {
+        return new JdbcBatchItemWriterBuilder<Author>()
                 .dataSource(dataSource)
                 .itemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>())
                 .sql("INSERT INTO USER (name, surname, address) VALUES (:name, :surname, :address)")
@@ -61,7 +61,7 @@ public class BatchConfig {
     @Bean
     Step step() {
         return stepBuilderFactory.get("step")
-                .<User, User>chunk(10)
+                .<Author, Author>chunk(10)
                 .reader(itemReader())
                 .writer(itemWriter())
                 .build();
