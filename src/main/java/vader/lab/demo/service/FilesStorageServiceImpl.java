@@ -2,6 +2,9 @@ package vader.lab.demo.service;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Date;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Path;
@@ -13,10 +16,11 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.core.env.Environment;
 
 @Service
 public class FilesStorageServiceImpl implements FilesStorageService {
-
+    private static final File TEMP_DIRECTORY = new File(System.getProperty("java.io.tmpdir"));
     private final Path root = Paths.get("uploads");
 
     @Override
@@ -28,8 +32,23 @@ public class FilesStorageServiceImpl implements FilesStorageService {
         }
     }
 
+    private String getFileExtension(String fileName) {
+        if (fileName == null) {
+            return null;
+        }
+        String[] fileNameParts = fileName.split("\\.");
+
+        return fileNameParts[fileNameParts.length - 1];
+    }
+
     @Override
     public void save(MultipartFile file) {
+        String fileName =
+                new Date().getTime() + "-file." + getFileExtension(file.getOriginalFilename());
+
+        File newDirectory = new File(TEMP_DIRECTORY, "new_directory");
+
+
         try {
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
         } catch (Exception e) {

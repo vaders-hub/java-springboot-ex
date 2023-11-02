@@ -64,6 +64,7 @@ public class WebSecurityConfig {
                         auth
                                 .antMatchers("/auth/**").permitAll()
                                 .antMatchers("/test/**").permitAll()
+                                .antMatchers("/countryList").permitAll()
                                 .anyRequest().authenticated()
                 );
 

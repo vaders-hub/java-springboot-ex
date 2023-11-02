@@ -1,14 +1,19 @@
 package vader.lab.demo.controller;
 
+import vader.lab.demo.domain.ResponseMessage;
+import vader.lab.demo.service.CountryService;
+import vader.lab.demo.service.CountryStatsService;
+
+import vader.lab.demo.domain.CountryDTO;
+import vader.lab.demo.domain.CountryStats;
+import vader.lab.demo.domain.ResultModel;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestParam;
-import vader.lab.demo.domain.ResponseMessage;
-import vader.lab.demo.service.CountryService;
-import vader.lab.demo.domain.CountryDTO;
-import vader.lab.demo.domain.ResultModel;
+
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,19 +43,27 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
+    @Autowired
+    private CountryStatsService countryStatsService;
+
+
     @GetMapping("/countryList")
     public ResponseEntity<ResultModel> getCountryList() {
         ResultModel resultModel = new ResultModel();
 
-        List<CountryDTO> countryList = countryService.getCountryList();
+//        List<CountryDTO> countryList = countryService.getCountryList();
+//        Map<String, Object> rawMap = new HashMap<>();
+//        rawMap.put("list", countryList);
+
+        List<CountryStats> countryStatList = countryStatsService.findAllCountryStats();
         Map<String, Object> rawMap = new HashMap<>();
-        rawMap.put("list", countryList);
+        rawMap.put("list", countryStatList);
 
         resultModel.setData(rawMap);
 
         return ResponseEntity.ok().body(resultModel);
     }
-    
+
     @GetMapping("/country")
     public ResponseEntity<ResultModel> getCountry(@Valid @RequestParam(required = true) String country) {
         ResultModel resultModel = new ResultModel();
