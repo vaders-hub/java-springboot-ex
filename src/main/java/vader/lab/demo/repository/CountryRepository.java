@@ -9,7 +9,10 @@ import java.util.List;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
+
     List<Country> findAll();
 
     List<Country> findByAreaGreaterThan(Integer area);
+
+    Country save(Country country);
 }

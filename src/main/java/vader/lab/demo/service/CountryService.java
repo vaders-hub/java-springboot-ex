@@ -8,4 +8,6 @@ public interface CountryService {
     List<Country> findAllCountries();
 
     List<Country> findCountriesByArea(Integer area);
+
+    Country saveCountry(Country country);
 }

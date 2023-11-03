@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.NoSuchElementException;
 import java.util.HashMap;
@@ -54,6 +56,19 @@ public class CountryController {
         rawMap.put("countrylist", countryList);
 
         resultModel.setData(rawMap);
+
+        return ResponseEntity.ok().body(resultModel);
+    }
+
+    @PostMapping("/saveCountry")
+    public ResponseEntity<ResultModel> saveCountry(@RequestBody(required = true) Country country) {
+        ResultModel resultModel = new ResultModel();
+
+        Country savedCountry = countryService.saveCountry(country);
+        Map<String, Object> rawMap = new HashMap<>();
+        rawMap.put("saved", savedCountry);
+
+        resultModel.setData(savedCountry);
 
         return ResponseEntity.ok().body(resultModel);
     }

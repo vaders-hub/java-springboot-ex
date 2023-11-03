@@ -28,4 +28,11 @@ public class CountryServiceImpl implements CountryService {
 
         return countryRepository.findByAreaGreaterThan(area);
     }
+
+    @Override
+    @Transactional
+    public Country saveCountry(Country country) {
+        
+        return countryRepository.save(country);
+    }
 }
