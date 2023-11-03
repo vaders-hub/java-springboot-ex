@@ -1,11 +1,12 @@
 package vader.lab.demo.controller;
 
-import vader.lab.demo.domain.ResponseMessage;
+import vader.lab.demo.service.CountryDTOService;
 import vader.lab.demo.service.CountryService;
 import vader.lab.demo.service.CountryStatsService;
 
 import vader.lab.demo.domain.CountryDTO;
-import vader.lab.demo.domain.CountryStats;
+import vader.lab.demo.domain.Country;
+import vader.lab.demo.domain.CountryStat;
 import vader.lab.demo.domain.ResultModel;
 
 import lombok.RequiredArgsConstructor;
@@ -20,14 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 
 import java.util.NoSuchElementException;
 import java.util.HashMap;
@@ -41,8 +36,10 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class CountryController {
     @Autowired
-    private CountryService countryService;
+    private CountryDTOService countryDTOService;
 
+    @Autowired
+    private CountryService countryService;
     @Autowired
     private CountryStatsService countryStatsService;
 
@@ -51,13 +48,36 @@ public class CountryController {
     public ResponseEntity<ResultModel> getCountryList() {
         ResultModel resultModel = new ResultModel();
 
-//        List<CountryDTO> countryList = countryService.getCountryList();
-//        Map<String, Object> rawMap = new HashMap<>();
-//        rawMap.put("list", countryList);
-
-        List<CountryStats> countryStatList = countryStatsService.findAllCountryStats();
+        // List<CountryDTO> countryList = countryDTOService.getCountryList();
+        List<Country> countryList = countryService.findAllCountries();
         Map<String, Object> rawMap = new HashMap<>();
-        rawMap.put("list", countryStatList);
+        rawMap.put("countrylist", countryList);
+
+        resultModel.setData(rawMap);
+
+        return ResponseEntity.ok().body(resultModel);
+    }
+
+    @GetMapping("/countryListByArea")
+    public ResponseEntity<ResultModel> getCountryListByArea(@RequestParam(required = true) Integer area) {
+        ResultModel resultModel = new ResultModel();
+
+        List<Country> countryList = countryService.findCountriesByArea(area);
+        Map<String, Object> rawMap = new HashMap<>();
+        rawMap.put("countrylist", countryList);
+
+        resultModel.setData(rawMap);
+
+        return ResponseEntity.ok().body(resultModel);
+    }
+
+    @GetMapping("/countryStatList")
+    public ResponseEntity<ResultModel> getCountryStatList() {
+        ResultModel resultModel = new ResultModel();
+
+        List<CountryStat> countryStatList = countryStatsService.findAllCountryStats();
+        Map<String, Object> rawMap = new HashMap<>();
+        rawMap.put("countryStatlist", countryStatList);
 
         resultModel.setData(rawMap);
 
@@ -68,8 +88,7 @@ public class CountryController {
     public ResponseEntity<ResultModel> getCountry(@Valid @RequestParam(required = true) String country) {
         ResultModel resultModel = new ResultModel();
 
-        CountryDTO searchedCountry = countryService.getCountry(country);
-
+        CountryDTO searchedCountry = countryDTOService.getCountry(country);
         resultModel.setResultCode("0000");
         resultModel.setData(searchedCountry);
 
