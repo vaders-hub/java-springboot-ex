@@ -63,6 +63,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .antMatchers("/auth/**").permitAll()
+                                .antMatchers("/static/**").permitAll()
                                 .antMatchers("/test/**").permitAll()
                                 .anyRequest().authenticated()
                 );
